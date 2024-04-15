@@ -30,3 +30,20 @@ class SolWalletConnector {
         await this.connection.sendTransaction(transaction, [this.wallet]);
     }
 }
+
+// Example usage
+const walletConnector = new SolWalletConnector();
+const publicKey = walletConnector.getPublicKey();
+console.log('Wallet Public Key:', publicKey);
+
+// Get balance
+const balance = await walletConnector.getBalance();
+console.log('Wallet Balance:', balance);
+
+// Airdrop SOL
+await walletConnector.airdropSol(1); // Airdrop 1 SOL
+
+// Send SOL to another address
+const receiverPublicKey = 'RECEIVER_PUBLIC_KEY';
+const amountToSend = 0.5; // Amount in SOL
+await walletConnector.sendSol(receiverPublicKey, amountToSend);
